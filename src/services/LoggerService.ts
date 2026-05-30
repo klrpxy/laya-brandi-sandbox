@@ -3,8 +3,12 @@
  * 单独拆出来后，其他类可以依赖它，
  * 而不是自己直接调用 console.log。
  */
-export class LoggerService {
-    public log(message: string): void {
-        console.log(`[LoggerService] ${message}`);
+export interface LoggerService {
+    log(msg: string): void;
+}
+
+export class ConsoleLogger implements LoggerService {
+    public log(msg: string) {
+        console.log(`[LoggerService] ${msg}`);
     }
 }

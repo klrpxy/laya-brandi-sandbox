@@ -1,7 +1,7 @@
-import { DependencyModule, injected } from "brandi";
-import { TOKENS } from "./tokens";
-import { LoggerService } from "../services/LoggerService";
-import { PlayerService } from "../services/PlayerService";
+import { DependencyModule, injected } from 'brandi';
+import { TOKENS } from './tokens';
+import { ConsoleLogger, LoggerService } from '../services/LoggerService';
+import { PlayerService } from '../services/PlayerService';
 
 /**
  * 依赖模块用于集中描述：
@@ -17,5 +17,5 @@ export const appModule = new DependencyModule();
  */
 injected(PlayerService, TOKENS.loggerService);
 
-appModule.bind(TOKENS.loggerService).toInstance(LoggerService).inSingletonScope();
+appModule.bind(TOKENS.loggerService).toInstance(ConsoleLogger).inSingletonScope();
 appModule.bind(TOKENS.playerService).toInstance(PlayerService).inSingletonScope();
