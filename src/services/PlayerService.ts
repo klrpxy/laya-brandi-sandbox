@@ -1,4 +1,6 @@
-import { LoggerService } from "./LoggerService";
+import { injected } from 'brandi';
+import { LoggerService } from './LoggerService';
+import { TOKENS } from '../di/tokens';
 
 /**
  * 一个简单的业务服务，用来保存玩家金币。
@@ -19,3 +21,10 @@ export class PlayerService {
         return this.gold;
     }
 }
+
+/**
+ * PlayerService 的构造函数需要一个 LoggerService。
+ * 这行代码告诉 Brandi：创建 PlayerService 时，
+ * 要把 loggerService 对应的对象传进去。
+ */
+injected(PlayerService, TOKENS.loggerService);

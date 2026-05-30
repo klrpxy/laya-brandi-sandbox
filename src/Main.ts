@@ -12,7 +12,7 @@ const { regClass } = Laya;
 @regClass()
 export class Main extends Laya.Script {
     onStart(): void {
-        const playerService: PlayerService = container.get(TOKENS.playerService);
+        const playerService = container.get(TOKENS.playerService);
 
         console.log('Game start');
         console.log('Initial gold:', playerService.getGold());

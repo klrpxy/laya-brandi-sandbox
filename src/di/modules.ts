@@ -1,6 +1,6 @@
-import { DependencyModule, injected } from 'brandi';
+import { DependencyModule } from 'brandi';
 import { TOKENS } from './tokens';
-import { ConsoleLogger, LoggerService } from '../services/LoggerService';
+import { ConsoleLogger } from '../services/LoggerService';
 import { PlayerService } from '../services/PlayerService';
 
 /**
@@ -9,13 +9,6 @@ import { PlayerService } from '../services/PlayerService';
  * 2. Brandi 应该向构造函数注入哪些依赖
  */
 export const appModule = new DependencyModule();
-
-/**
- * PlayerService 的构造函数需要一个 LoggerService。
- * 这行代码告诉 Brandi：创建 PlayerService 时，
- * 要把 loggerService 对应的对象传进去。
- */
-injected(PlayerService, TOKENS.loggerService);
 
 appModule.bind(TOKENS.loggerService).toInstance(ConsoleLogger).inSingletonScope();
 appModule.bind(TOKENS.playerService).toInstance(PlayerService).inSingletonScope();
