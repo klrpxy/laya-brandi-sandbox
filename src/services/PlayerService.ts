@@ -1,11 +1,9 @@
-import { injected } from 'brandi';
 import { LoggerService } from './LoggerService';
-import { TOKENS } from '../di/tokens';
 
 /**
- * 一个简单的业务服务，用来保存玩家金币。
- * 它依赖 LoggerService，因此由 Brandi 自动注入，
- * 而不是在类内部自己创建日志对象。
+ * 涓€涓畝鍗曠殑涓氬姟鏈嶅姟锛岀敤鏉ヤ繚瀛樼帺瀹堕噾甯併€?
+ * 瀹冧緷璧?LoggerService锛屽洜姝ょ敱 Brandi 鑷姩娉ㄥ叆锛?
+ * 鑰屼笉鏄湪绫诲唴閮ㄨ嚜宸卞垱寤烘棩蹇楀璞°€?
  */
 export class PlayerService {
     private gold = 0;
@@ -21,10 +19,3 @@ export class PlayerService {
         return this.gold;
     }
 }
-
-/**
- * PlayerService 的构造函数需要一个 LoggerService。
- * 这行代码告诉 Brandi：创建 PlayerService 时，
- * 要把 loggerService 对应的对象传进去。
- */
-injected(PlayerService, TOKENS.loggerService);

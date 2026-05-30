@@ -1,5 +1,4 @@
 import { Container } from 'brandi';
-import { TOKENS } from './tokens';
 import { appModule } from './modules';
 
 /**
@@ -11,4 +10,4 @@ export const container = new Container();
 /**
  * 把 appModule 中需要的绑定注册到运行时容器里。
  */
-container.use(TOKENS.loggerService, TOKENS.playerService).from(appModule);
+container.use(...appModule.allTokens).from(appModule);

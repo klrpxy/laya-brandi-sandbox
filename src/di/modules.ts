@@ -1,4 +1,4 @@
-import { DependencyModule } from 'brandi';
+import { makeInjectedModule } from 'brandi-typed';
 import { TOKENS } from './tokens';
 import { ConsoleLogger } from '../services/LoggerService';
 import { PlayerService } from '../services/PlayerService';
@@ -8,7 +8,11 @@ import { PlayerService } from '../services/PlayerService';
  * 1. 每个 token 应该创建哪个类
  * 2. Brandi 应该向构造函数注入哪些依赖
  */
-export const appModule = new DependencyModule();
+const appDefinition = makeInjectedModule(TOKENS);
 
-appModule.bind(TOKENS.loggerService).toInstance(ConsoleLogger).inSingletonScope();
-appModule.bind(TOKENS.playerService).toInstance(PlayerService).inSingletonScope();
+appDefinition.injector(PlayerService, 'loggerService');
+
+export const appModule = appDefinition
+    .bind('loggerService', (binding) => binding.toInstance(ConsoleLogger).inSingletonScope())
+    .bind('playerService', (binding) => binding.toInstance(PlayerService).inSingletonScope())
+    .make({});

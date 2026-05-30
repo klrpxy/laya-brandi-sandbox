@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "brandi": "^5.1.0"
+    "brandi": "^4.0.2",
+    "brandi-typed": "^1.0.7"
   },
   "devDependencies": {
     "typescript": "^5.9.2"
