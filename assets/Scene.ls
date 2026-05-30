@@ -11,8 +11,8 @@
   "height": 750,
   "_$comp": [
     {
-      "_$type": "7bad1742-6eed-4d8d-81c0-501dc5bf03d6",
-      "scriptPath": "../src/Main.ts"
+      "_$id": "ia89",
+      "_$type": "7bad1742-6eed-4d8d-81c0-501dc5bf03d6"
     }
   ]
 }

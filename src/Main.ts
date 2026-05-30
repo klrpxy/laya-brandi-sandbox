@@ -1,6 +1,6 @@
-import { container } from "./di/container";
-import { TOKENS } from "./di/tokens";
-import { PlayerService } from "./services/PlayerService";
+import { container } from './di/container';
+import { TOKENS } from './di/tokens';
+import { PlayerService } from './services/PlayerService';
 
 const { regClass } = Laya;
 
@@ -14,10 +14,10 @@ export class Main extends Laya.Script {
     onStart(): void {
         const playerService: PlayerService = container.get(TOKENS.playerService);
 
-        console.log("Game start");
-        console.log("Initial gold:", playerService.getGold());
+        console.log('Game start');
+        console.log('Initial gold:', playerService.getGold());
 
         playerService.addGold(100);
-        console.log("After addGold:", playerService.getGold());
+        console.log('After addGold:', playerService.getGold());
     }
 }

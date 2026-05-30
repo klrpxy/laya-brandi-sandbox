@@ -1,6 +1,6 @@
-import { Container } from "brandi";
-import { TOKENS } from "./tokens";
-import { appModule } from "./modules";
+import { Container } from 'brandi';
+import { TOKENS } from './tokens';
+import { appModule } from './modules';
 
 /**
  * Container 是运行时真正使用的容器。
